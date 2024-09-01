@@ -1,0 +1,56 @@
+def calculate_average(grades):
+  """Calculates the average of a list of grades.
+
+  Args:
+    grades: A list of grades.
+
+  Returns:
+    The average of the grades.
+  """
+
+  if not grades:
+    return 0
+  return sum(grades) / len(grades)
+
+def get_letter_grade(average_grade):
+  """Determines the letter grade based on the average grade.
+
+  Args:
+    average_grade: The average grade.
+
+  Returns:
+    The letter grade corresponding to the average grade.
+  """
+
+  if average_grade >= 90:
+    return 'A'
+  elif average_grade >= 80:
+    return 'B'
+  elif average_grade >= 70:
+    return 'C'
+  elif average_grade >= 60:
+    return 'D'
+  else:
+    return 'F'
+
+def main():
+  """Main function to manage student grades."""
+
+  grades = []
+
+  while True:
+    subject_or_assignment = input("Enter subject or assignment name (or 'quit' to exit): ")
+    if subject_or_assignment.lower() == 'quit':
+      break
+
+    grade = float(input("Enter the grade: "))
+    grades.append(grade)
+
+  average_grade = calculate_average(grades)
+  letter_grade = get_letter_grade(average_grade)
+
+  print("Average grade:", average_grade)
+  print("Letter grade:", letter_grade)
+
+if __name__ == "__main__":
+  main()
